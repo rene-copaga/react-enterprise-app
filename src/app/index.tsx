@@ -8,10 +8,9 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-
+import { BrowserRouter } from 'react-router-dom';
+import Routes from "./routes";
 import { GlobalStyle } from '../styles/global-styles';
-import Home from './views/pages/Home';
 
 export function App() {
   return (
@@ -23,9 +22,7 @@ export function App() {
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
 
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
+      <Routes />
       <GlobalStyle />
     </BrowserRouter>
   );
