@@ -8,12 +8,11 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-
+import { BrowserRouter } from 'react-router-dom';
+import Routes from "./routes";
 import { GlobalStyle } from '../styles/global-styles';
-
-import { HomePage } from './containers/HomePage/Loadable';
-import { NotFoundPage } from './containers/NotFoundPage/Loadable';
+import NavigationBar from './components/navigation-bar';
+import { Container } from '@material-ui/core';
 
 export function App() {
   return (
@@ -24,11 +23,10 @@ export function App() {
       >
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
-
-      <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <NavigationBar />
+      <Container>
+        <Routes />
+      </Container>
       <GlobalStyle />
     </BrowserRouter>
   );
