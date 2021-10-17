@@ -79,7 +79,8 @@
     "generate": "cross-env TS_NODE_PROJECT='./internals/ts-node.tsconfig.json' plop --plopfile internals/generators/plopfile.ts",
     "cleanAndSetup": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/scripts/clean.ts",
     "prettify": "prettier --write",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "backend": "json-server --watch db.json --port 5000 --delay=1000"
   },
   "eslintConfig": {
     "extends": "react-app"
