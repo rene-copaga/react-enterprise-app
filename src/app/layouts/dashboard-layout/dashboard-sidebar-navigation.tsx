@@ -4,6 +4,9 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import { useRouteMatch } from 'react-router';
+import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme =>
@@ -60,6 +63,26 @@ const DashboardSidebarNavigation = () => {
             Logo
           </Link>
         </Toolbar>
+        <div className={classes.drawerContainer}>
+          <List>
+            <Link className={classes.link} to={`${url}/settings-and-privacy`}>
+              <ListItem button>
+                <ListItemIcon>
+                  <SettingsIcon />
+                </ListItemIcon>
+                <ListItemText primary={'settings and privacy'} />
+              </ListItem>
+            </Link>
+            <a className={classes.link} href={'/'}>
+              <ListItem button>
+                <ListItemIcon>
+                  <ExitToAppIcon />
+                </ListItemIcon>
+                <ListItemText primary={'logout'} />
+              </ListItem>
+            </a>
+          </List>
+        </div>
       </Drawer>
     </div>
   );
