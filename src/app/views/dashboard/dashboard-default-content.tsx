@@ -3,7 +3,17 @@ import React, { useEffect, useState } from 'react'
 import { getSalesAxios } from 'services/saleService';
 import { Theme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core';
-import { useTheme } from 'styled-components';
+import Chart from 'react-apexcharts';
+import {
+Box,
+Card,
+CardContent,
+Container,
+Grid,
+Typography,
+useTheme,
+} from '@material-ui/core';
+import Page from "app/components/pages";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -101,10 +111,32 @@ const DashboardDefaultContent = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Dashboard Default Content</h1>
-      <h2>{sales.length}</h2>
-    </div>
+    <Page className={classes.root} title="Dashboard">
+      <Container maxWidth={'sm'}>
+        <Typography variant="h4" color="textPrimary">
+          Dashboard
+        </Typography>
+        <Box my={5}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h5" color="textPrimary">
+                    Sales
+                  </Typography>
+                  <Chart
+                    options={getChartStyling(theme)}
+                    series={sales}
+                    type="bar"
+                    height={'100%'}
+                  />
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </Page>
   );
 };
 
