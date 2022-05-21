@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from "./routes";
 import { GlobalStyle } from '../styles/global-styles';
-import { Container } from '@material-ui/core';
+import MainLayout from './layouts/main-layout';
 
 export function App() {
   return (
@@ -22,9 +22,9 @@ export function App() {
       >
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
-      <Container>
+      <MainLayout>
         <Routes />
-      </Container>
+      </MainLayout>
       <GlobalStyle />
     </BrowserRouter>
   );
