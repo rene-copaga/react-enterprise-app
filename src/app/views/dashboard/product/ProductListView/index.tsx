@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Container, createStyles, makeStyles} from '@material-ui/core';
 import Header from './Header';
 import Results from './Results';
+import { getProductAxios } from 'services/productService';
 
 const ProductListView = () => {
   const classes = useStyles();
-  
+
+  useEffect(() => {
+    getProductAxios();
+  }, []);
+
   return (
     <Container>
       <Header/>
