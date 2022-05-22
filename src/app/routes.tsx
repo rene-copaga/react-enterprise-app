@@ -4,7 +4,6 @@ import { LinearProgress } from '@material-ui/core';
 import Dashboard from './layouts/dashboard-layout';
 import Home from './views/pages/Home';
 import NotFoundPage from './views/pages/NotFoundPage';
-import SettingAndPrivacy from './views/dashboard/settings-and-privacy';
 
 const Routes = () => {
   return (
@@ -43,7 +42,6 @@ const Routes = () => {
                   )}
                   exact
                 />
-                <Route path={path + '/settings-and-privacy'} component={SettingAndPrivacy} exact />
               </Switch>
             </Dashboard>
         ) } />

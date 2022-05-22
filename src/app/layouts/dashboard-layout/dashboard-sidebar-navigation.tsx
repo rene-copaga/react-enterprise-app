@@ -80,6 +80,7 @@ const DashboardSidebarNavigation = () => {
             Logo
           </Link>
         </Toolbar>
+        <Divider />
         <div className={classes.drawerContainer}>
           <List>
             <ListSubheader>Reports</ListSubheader>
@@ -130,7 +131,7 @@ const DashboardSidebarNavigation = () => {
             <a className={classes.link} href={'/'}>
               <ListItem button>
                 <ListItemIcon>
-                  <ExitToAppIcon />
+                  <LogOutIcon />
                 </ListItemIcon>
                 <ListItemText primary={'logout'} />
               </ListItem>
