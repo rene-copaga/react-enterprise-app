@@ -14,7 +14,7 @@ import {PieChart as PieChartIcon,
   List as ListIcon,
   FilePlus as FilePlusIcon,
   LogOut as LogOutIcon,} from 'react-feather';
-import { Divider, ListSubheader } from '@material-ui/core';
+import { Collapse, Divider, ListSubheader } from '@material-ui/core';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme =>
@@ -43,7 +43,10 @@ const useStyles = makeStyles(theme =>
       alignItems: 'center',
       textDecoration: 'none',
       color: 'inherit',
-    }
+    },
+    nested: {
+      paddingLeft: theme.spacing(4),
+    },
   }),
 );
 
@@ -88,6 +91,34 @@ const DashboardSidebarNavigation = () => {
                 <ListItemText primary={'Dashboard'} />
               </ListItem>
             </Link>
+            <ListSubheader>Management</ListSubheader>
+            <ListItem button onClick={handleClick}>
+              <ListItemIcon>
+                <ShoppingCartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Products" />
+              {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            </ListItem>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <Link className={classes.link} to={`${url}/list-products`}>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <ListIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="List Products" />
+                  </ListItem>
+                </Link>
+                <Link className={classes.link} to={`${url}/create-product`}>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <FilePlusIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Create Product" />
+                  </ListItem>
+                </Link>
+              </List>
+            </Collapse>
             <Link className={classes.link} to={`${url}/settings-and-privacy`}>
               <ListItem button>
                 <ListItemIcon>
