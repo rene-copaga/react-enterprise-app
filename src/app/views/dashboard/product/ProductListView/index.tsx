@@ -1,15 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Container, createStyles, makeStyles} from '@material-ui/core';
 import Header from './Header';
 import Results from './Results';
 import { getProductAxios } from 'services/productService';
+import { ProductType } from 'models/product-type';
 
 const ProductListView = () => {
   const classes = useStyles();
 
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
-    getProductAxios();
+    fetchProduct();
   }, []);
+
+  const fetchProduct = async () => {
+    handleToggle();
+    try {
+      const { data } = await getProductAxios();
+      setProducts(data);
+    } catch (e) {
+      alert('Something is wrong.');
+    }
+    handleClose();
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   return (
     <Container>
