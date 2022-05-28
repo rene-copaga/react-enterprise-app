@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import {Container, createStyles, makeStyles} from '@material-ui/core';
+import {
+  Backdrop,
+  Box,
+  CircularProgress,
+  Container,
+  makeStyles,
+} from '@material-ui/core';
 import Header from './Header';
 import Results from './Results';
 import { getProductAxios } from 'services/productService';
 import { ProductType } from 'models/product-type';
+import Page from 'app/components/pages';
+import { createStyles } from '@material-ui/core/styles';
 
 const ProductListView = () => {
   const classes = useStyles();
@@ -35,10 +43,23 @@ const ProductListView = () => {
   };
 
   return (
-    <Container>
-      <Header/>
-      <Results/>
-    </Container>
+    <Page className={classes.root} title="Product List">
+      <Container>
+        <Header />
+        {products && (
+          <Box mt={3}>
+            <Results products={products} />
+          </Box>
+        )}
+        <Backdrop
+          className={classes.backdrop}
+          open={open}
+          onClick={handleClose}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      </Container>
+    </Page>
   );
 };
 
