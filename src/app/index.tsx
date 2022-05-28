@@ -9,6 +9,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 import Routes from "./routes";
 import { GlobalStyle } from '../styles/global-styles';
 import MainLayout from './layouts/main-layout';
@@ -16,16 +17,18 @@ import MainLayout from './layouts/main-layout';
 export function App() {
   return (
     <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
-      >
-        <meta name="description" content="A React Boilerplate application" />
-      </Helmet>
-      <MainLayout>
-        <Routes />
-      </MainLayout>
-      <GlobalStyle />
+      <SnackbarProvider dense maxSnack={3}>
+        <Helmet
+          titleTemplate="%s - React Boilerplate"
+          defaultTitle="React Boilerplate"
+        >
+          <meta name="description" content="A React Boilerplate application" />
+        </Helmet>
+        <MainLayout>
+          <Routes />
+        </MainLayout>
+        <GlobalStyle />
+      </SnackbarProvider>
     </BrowserRouter>
   );
 }
