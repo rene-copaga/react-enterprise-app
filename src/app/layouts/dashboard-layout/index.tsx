@@ -1,14 +1,14 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import DashboardSidebarNavigation from './dashboard-sidebar-navigation';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 type Props = {
   children: React.ReactNode;
-}
+};
 
 const Dashboard = ({ children }: Props) => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Grid
       container
@@ -17,14 +17,14 @@ const Dashboard = ({ children }: Props) => {
       alignItems="flex-start"
     >
       <DashboardSidebarNavigation />{' '}
-        <div className={classes.wrapper}>
-          <div className={classes.contentContainer}>
-            <div className={classes.content}>{children}</div>
-          </div>
+      <div className={classes.wrapper}>
+        <div className={classes.contentContainer}>
+          <div className={classes.content}>{children}</div>
         </div>
+      </div>
     </Grid>
-  )
-}
+  );
+};
 
 const useStyles = makeStyles(theme => ({
   root: {

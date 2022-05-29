@@ -1,24 +1,24 @@
 import { SaleType } from 'models/sale-type';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { getSalesAxios } from 'services/saleService';
 import { Theme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core';
 import Chart from 'react-apexcharts';
 import {
-Box,
-Card,
-CardContent,
-Container,
-Grid,
-Typography,
-useTheme,
+  Box,
+  Card,
+  CardContent,
+  Container,
+  Grid,
+  Typography,
+  useTheme,
 } from '@material-ui/core';
-import Page from "app/components/pages";
+import Page from 'app/components/pages';
 
 const useStyles = makeStyles(() => ({
   root: {
     minHeight: '100%',
-  }
+  },
 }));
 
 const getChartStyling = (theme: Theme) => ({
@@ -93,7 +93,7 @@ const getChartStyling = (theme: Theme) => ({
       },
     },
   },
-})
+});
 
 const DashboardDefaultContent = () => {
   const classes = useStyles();
@@ -104,7 +104,7 @@ const DashboardDefaultContent = () => {
   const fetchSales = async () => {
     const { data } = await getSalesAxios();
     setSales(data);
-  }
+  };
 
   useEffect(() => {
     fetchSales();

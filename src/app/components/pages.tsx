@@ -1,4 +1,4 @@
-import React,{ forwardRef, HTMLProps, ReactNode }from 'react'
+import React, { forwardRef, HTMLProps, ReactNode } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 type Props = {

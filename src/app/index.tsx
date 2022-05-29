@@ -10,7 +10,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
-import Routes from "./routes";
+import Routes from './routes';
 import { GlobalStyle } from '../styles/global-styles';
 import MainLayout from './layouts/main-layout';
 
