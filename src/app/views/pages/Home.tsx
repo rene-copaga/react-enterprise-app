@@ -1,5 +1,5 @@
 import React from 'react';
-import MaterialButtons from "app/components/material-buttons";
+import MaterialButtons from 'app/components/material-buttons';
 
 const Home = () => {
   return (

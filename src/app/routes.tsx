@@ -7,10 +7,10 @@ import NotFoundPage from './views/pages/NotFoundPage';
 
 const Routes = () => {
   return (
-    <Suspense fallback={<LinearProgress style={{  margin: '10rem'}} />}>
+    <Suspense fallback={<LinearProgress style={{ margin: '10rem' }} />}>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route 
+        <Route
           path={'/about'}
           component={lazy(() => import('./views/pages/AboutPage'))}
           exact
@@ -18,37 +18,38 @@ const Routes = () => {
 
         <Route
           path="/dashboard"
-          render={ ({match: {path} } ) => (
+          render={({ match: { path } }) => (
             <Dashboard>
               <Switch>
-                <Route 
+                <Route
                   path={path + '/'}
-                  component={lazy(
-                    () => import('./views/dashboard/dashboard-default-content'),
+                  component={lazy(() =>
+                    import('./views/dashboard/dashboard-default-content'),
                   )}
                   exact
                 />
                 <Route
                   path={path + '/list-products'}
-                  component={lazy(
-                    () => import('./views/dashboard/product/ProductListView'),
+                  component={lazy(() =>
+                    import('./views/dashboard/product/ProductListView'),
                   )}
                   exact
                 />
                 <Route
                   path={path + '/create-product'}
-                  component={lazy(
-                    () => import('./views/dashboard/product/ProductCreateView'),
+                  component={lazy(() =>
+                    import('./views/dashboard/product/ProductCreateView'),
                   )}
                   exact
                 />
               </Switch>
             </Dashboard>
-        ) } />
+          )}
+        />
         <Route exact path="/not-found" component={NotFoundPage} />
         <Redirect exact from={'*'} to={'/not-found'} />
       </Switch>
     </Suspense>
   );
-}
+};
 export default Routes;

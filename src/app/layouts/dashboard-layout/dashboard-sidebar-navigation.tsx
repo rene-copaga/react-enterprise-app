@@ -5,15 +5,16 @@ import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import { useRouteMatch } from 'react-router';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsIcon from '@material-ui/icons/Settings';
-import {PieChart as PieChartIcon,
+import {
+  PieChart as PieChartIcon,
   ShoppingCart as ShoppingCartIcon,
   ChevronUp as ChevronUpIcon,
   ChevronDown as ChevronDownIcon,
   List as ListIcon,
   FilePlus as FilePlusIcon,
-  LogOut as LogOutIcon,} from 'react-feather';
+  LogOut as LogOutIcon,
+} from 'react-feather';
 import { Collapse, Divider, ListSubheader } from '@material-ui/core';
 
 const drawerWidth = 240;

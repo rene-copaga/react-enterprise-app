@@ -100,7 +100,7 @@ const Results = ({ className, products = [], ...rest }: Props) => {
     event.persist();
     let value: any = null;
     if (event.target.checked) {
-    value = true;
+      value = true;
     }
     setFilters(prevFilters => ({
       ...prevFilters,
@@ -217,8 +217,8 @@ const Results = ({ className, products = [], ...rest }: Props) => {
           >
             {categoryOptions.map(categoryOption => (
               <option key={categoryOption.id} value={categoryOption.id}>
-              {categoryOption.name}
-            </option>
+                {categoryOption.name}
+              </option>
             ))}
           </TextField>
           <TextField

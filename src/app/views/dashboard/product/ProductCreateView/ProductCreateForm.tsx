@@ -22,7 +22,7 @@ import {
 import FilesDropzone from 'app/components/files-dropzone';
 import QuillEditor from 'app/components/quill-editor';
 import { postProductAxios } from 'services/productService';
-import { yupProductValidation } from'./schema/yupProductValidation';
+import { yupProductValidation } from './schema/yupProductValidation';
 import { productDefaultValue } from './schema/productDefaultValue';
 
 const categories = [
@@ -77,7 +77,7 @@ const ProductCreateForm = ({ className, ...rest }: Props) => {
           history.push('/dashboard/list-products');
         } catch (err) {
           alert('Something happened. Please try again.');
-          setError(err.message);
+          setError((err as Error)?.message);
           formikHelpers.setStatus({ success: false });
           formikHelpers.setSubmitting(false);
         }

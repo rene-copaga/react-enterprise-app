@@ -32,7 +32,7 @@ const ProductListView = () => {
       alert('Something is wrong.');
     }
     handleClose();
-  }
+  };
 
   const handleClose = () => {
     setOpen(false);
